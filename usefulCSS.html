@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>30+有用的css代码</title>
+    <style media="screen">
+    /*1.垂直对齐
+        幸运的是，现在你可以使用css3的垂直变换来解决这个问题*/
+      .vc{
+        position: relative;
+        top: 50%;
+        -webkit -transform:translateY(-50%);
+        transform: translateY(-50%);
+      }
+
+      /*2.只在一侧或者两侧具有投影*/
+      .box-shadow{
+        background-color: #AC92EC;
+        width: 160px;
+        height: 90px;
+        magin-top :-45px;
+        margin-left: -80px;
+        position: absolute;
+        top: 50%;
+        left:50%;
+      }
+      .box-shadow::after{
+        content: "";
+        width: 150px;
+        height: 1px;
+        margin-top: 88px;
+        margin-left: -75px;
+        display: block;
+        position: absolute;
+        left: 50%;
+        z-index: -1;
+        -webkit-box-shadow: 0px 0px 8px 2px #000000;
+         -moz-box-shadow: 0px 0px 8px 2px #000000;
+              box-shadow: 0px 0px 8px 2px #000000;
+      }
+      /*3.渐变背景动画效果
+        巧妙地移动背景使得看起来像动画一样*/
+        button{
+          padding: 15px;
+          background-image: linear-gradient(#fc6e51,#fff);
+          background-size: auto 200%;
+          background-position: :0 100%;
+          transition: background-position 0.5s;
+
+        }
+        button:hover{
+          background-position: 0 0;
+        }
+
+        /*4.将文本分成多列
+          */
+          div{
+            -moz-column-count:3; /* Firefox */
+            -webkit-column-count:3; /* Safari and Chrome */
+            column-count:3;
+          }
+          /*5.表格自动宽度*/
+          td{
+            white-space: nowrap;
+          }
+          /*6. 像出版物一样，第一个字变得大些*/
+          p:first-child::first-letter{
+            font-family: "papyrus";
+            font-size: 28px;
+            font-weight: bold;
+          }
+
+          /*8. 创建模糊文本*/
+          .blurry-text{
+            color: transparent;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+          }
+          /*9. 不使用表格实现跨浏览器垂直水平居中图片*/
+          .logo{
+            display: block;
+            text-align: center;
+            vertical-align: middle;
+            border: 4px solid #dddddd;
+            padding: 4px;
+            height: 74ox;
+            width: 74px;
+          }
+          .logo * {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+          }
+          .logo .photo{
+            height: auto;
+            width: auto;
+            max-width: 100%;
+            max-height: 100%;
+          }
+          /*10. 高亮选中的 input*/
+          input:checked + label{
+            background: yellow;
+          }
+          /*11. 跨浏览器透明度*/
+          selector {
+            filter: alpha(opacity=50); /* internet explorer */
+            -khtml-opacity: 0.5;      /* khtml, old safari */
+            -moz-opacity: 0.5;       /* mozilla, netscape */
+            opacity: 0.5;           /* fx, safari, opera */
+          }
+          /*12. CSS投影*/
+          .shadow{
+            -moz-box-shadow: 5px 5px 5px #ccc;
+            -webkit-box-shadow: 5px 5px 5px #ccc;
+            box-shadow: 5px 5px 5px #ccc
+            /*内投影加上inset*/
+          }
+
+          /*13. 跨浏览器最小高度*/
+          #div1{
+            min-height: 500px;
+            height: auto !important;
+            height: 500px
+          }
+          /*14. 固定 Footer*/
+          #footer{
+            position: fixed;
+            left: 0px;
+            bottom: 0px;
+            height: 30px;
+            width: 100%;
+            background: #999;
+          }
+          /*15. 清除浮动 Clearfix*/
+          /*16. 给可点击元素添加手型光标*/
+          /*17. iPad 定向CSS*/
+          <!-- css -->
+          @media only screen and (max-device-width: 1024px) and (orientation:portrait) {
+            .landscape { display: none; }
+          }
+          @media only screen and (max-device-width: 1024px) and (orientation:landscape) {
+            .portrait { display: none; }
+          }
+          /*18.Pre标签内文本换行*/
+          pre{
+            height: 120px;
+            overflow: auto;
+            font-family: “Consolas”,monospace;
+            font-size: 9pt;
+            text-align:left;
+            background-color: #FCF7EC;
+            overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not white-space: pre-wrap; /* css-3 */
+            white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+            word-wrap: break-word; /* Internet Explorer 5.5+ */
+            margin: 0px 0px 0px 0px;
+            padding:5px 5px 3px 5px;
+            white-space : normal; /* crucial for IE 6, maybe 7? */
+          }
+          /*21 多边框 元素必须是相对定位的，但具有足够的padding来显示多余的边框*/
+          #border{
+            position: relative;
+            z-index: 1;
+            padding: 30xp;
+            border: 5px solid #f00;
+            background: #ff9600;
+
+          }
+          #border:before{
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 5px solid #ffea00;
+            background: #4aa929;
+          }
+          #border:after{
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top:15px;
+            left:15px;
+            right:15px;
+            bottom:15px;
+            border:5px solid #00b4ff;
+            background:#fff;
+          }
+
+
+          /*23.简单好看的引用样式*/
+          blockquote {
+            background:#f9f9f9;
+            border-left:10px solid #ccc;
+            margin:1.5em 10px;
+            padding:.5em 10px;
+            quotes:"201C""201D""2018""2019";
+          }
+          blockquote:before {
+            color:#ccc;
+            content:open-quote;
+            font-size:4em;
+            line-height:.1em;
+            margin-right:.25em;
+            vertical-align:-.4em;
+          }
+          blockquote p {
+            display:inline;
+          }
+
+          /*26.背景透明*/
+          .rgba{
+            background-color: transparent;
+            background-color: rgba(200,200,200,0.8);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99dddddd,endColorstr=#99dddddd);
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99dddddd,endColorstr=#99dddddd)";
+          }
+          /*27.居中未知宽度的DIV元素*/
+          .content{
+            margin: 0 auto; 8px;
+            display: table;
+          }
+          .content div{
+            display: table-cell;
+          }
+          /*31.首字下称*/
+          p:first-letter{
+            display: block;
+            margin: 5px 0 0 5px;
+            float: left;
+            color: #ff3366;
+            font-size: 60px;
+            font-family: Georgia;
+          }
+
+
+    </style>
+  </head>
+  <body>
+    <figure class="logo">
+      <span></span>
+      <img class="photo">
+    </figure>
+
+    <input type="checkbox" id=mycheck1 />
+    <label for="mycheck1">Check box label here</label>
+    <br>
+    <input id="mycheck2" type="checkbox" checked/>
+    <label for="mycheck2">Check box label here</label>
+    <br />
+    <input id="mycheck3" type="checkbox" />
+    <label for="mycheck3">Check box label here</label>
+
+
+      <h1 class="portrait">Your device orientation is "portrait"<h1>
+      <h1 class="landscape">Your device orientation is "landscape"<h1>
+
+        <blockquote cite="http://www.baidu.com">
+          sadasdasdasdasd
+        </blockquote>
+        <p>asdasdasdasdasdasdasd</p>
+
+  </body>
+</html>
